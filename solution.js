@@ -13,6 +13,16 @@
 // |o |     | o|     |  |
 // |  |     |  |     |oo|
 //  --       --       --
+//
+//  Coordinates of bits in order of least to most significant:
+//  (0, 3) => 1
+//  (0, 2) => 2
+//  (0, 1) => 4
+//  (1, 3) => 8
+//  (1, 2) => 16
+//  (1, 1) => 32
+//  (0, 0) => 64
+//  (1, 0) => 128
 
 const baseValue = 0x2800
 
