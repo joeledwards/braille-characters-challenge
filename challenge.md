@@ -7,8 +7,34 @@ I was unfamiliar with these characters, so I decided to look them up, and discov
 The challenge is three-fold:
 1) Output all characters in their native order (monotonically increasing based on codepoint).
 
-2) Output all charcters such that the least significant bits are always in columns left of more significant bits. Within each column, less significant bits should always be higher than more significant bits. Vertical-first binary order.
+Example values translated to Braille characters in Native Order:
+```
+  0      1      2      3      8      13     27     73 
+  --     --     --     --     --     --     --     -- 
+ |  |   |o |   |  |   |o |   | o|   |oo|   |oo|   |oo|
+ |  |   |  |   |o |   |o |   |  |   |  |   |oo|   |  |
+ |  |   |  |   |  |   |  |   |  |   |o |   |  |   |  |
+ |  |   |  |   |  |   |  |   |  |   |  |   |  |   |o |
+  --     --     --     --     --     --     --     -- 
+```
 
+2) Output all characters such that the least significant bits are always in higher rows than the most significant bits. Within each row, less significant bits should always be left more significant bits. Horizontal-first binary order.
+
+
+Example values translated to Braille characters in Horizontal Order:
+```
+  0      1      2      3      8      13     27     73 
+  --     --     --     --     --     --     --     -- 
+ |  |   |o |   | o|   |oo|   |  |   |o |   |oo|   |o |
+ |  |   |  |   |  |   |  |   | o|   |oo|   | o|   | o|
+ |  |   |  |   |  |   |  |   |  |   |  |   |o |   |  |
+ |  |   |  |   |  |   |  |   |  |   |  |   |  |   |o |
+  --     --     --     --     --     --     --     -- 
+```
+
+3) Output all characters such that the least significant bits are always in columns left of more significant bits. Within each column, less significant bits should always be higher than more significant bits. Vertical-first binary order.
+
+Example values translated to Braille characters in Vertical Order:
 ```
   0      1      2      3      8      13     27     73 
   --     --     --     --     --     --     --     -- 
@@ -19,17 +45,6 @@ The challenge is three-fold:
   --     --     --     --     --     --     --     -- 
 ```
 
-3) Output all characters such that the least significant bits are always in higher rows than the most significant bits. Within each row, less significant bits should always be left more significant bits. Horizontal-first binary order.
-
-```
-  0      1      2      3      8      13     27     73 
-  --     --     --     --     --     --     --     -- 
- |  |   |o |   | o|   |oo|   |  |   |o |   |oo|   |o |
- |  |   |  |   |  |   |  |   | o|   |oo|   | o|   | o|
- |  |   |  |   |  |   |  |   |  |   |  |   |o |   |  |
- |  |   |  |   |  |   |  |   |  |   |  |   |  |   |o |
-  --     --     --     --     --     --     --     -- 
-```
 
 The output format is a 16x16 grid with spaces between each character and between each row.
 

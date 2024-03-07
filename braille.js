@@ -1,27 +1,29 @@
 #! /usr/bin/env node
 
-const {
-  horizontalMapper,
-  nativeMapper,
-  verticalMapper,
-} = require('./solution')
+const chalk = require('chalk')
+
+const solution = require('./solution')
+const reference = require('./reference')
 
 console.info('\n===== Codepoint Order =====\n')
-display(nativeMapper)
+display(solution.nativeMapper, reference.nativeMapper)
 
 console.info('\n===== Horizontal Binary Order =====\n')
-display(horizontalMapper)
+display(solution.horizontalMapper, reference.horizontalMapper)
 
 console.info('\n===== Vertical Binary Order =====\n')
-display(verticalMapper)
+display(solution.verticalMapper, reference.verticalMapper)
 
-function display (mapper) {
+function display (solutionMapper, referenceMapper) {
   for (let i = 0; i < 16; i++) {
     let line = ''
     for (let j = 0; j < 16; j++) {
       const value = i * 16 + j
-      const char = mapper(value)
-      line += ` ${char}`
+      const sChar = solutionMapper(value)
+      const rChar = referenceMapper(value)
+      const dChar = ((sChar === rChar) ? chalk.green : chalk.red)(sChar)
+
+      line += ` ${dChar}`
     }
 
     console.info(`${line}\n`)
