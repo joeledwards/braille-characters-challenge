@@ -1,6 +1,4 @@
 
-const reference = require('./reference')
-
 function nativeMapper (value) {
   return 'x'
 }
