@@ -63,7 +63,7 @@ Example values translated to Braille characters in Vertical Order:
 
 The output format for each sequence is a 16x16 grid with spaces between each character and between each row.
 
-An ideal solution will not need to reference any of the characters, and should leverage a mechanism for translating any value between 0 and 255 into the appropriate codepoints depending on the mode (vertical-first or horizontal-first), then from the codepoint to the character.
+An ideal solution will not need to reference any of the characters, and should leverage a mechanism for translating any value between 0 and 255 into the appropriate codepoints depending on the mode (native, horizontal-first, or vertical-first), then translate the codepoint into a character.
 
 You can either start from scratch (necessary if you want to use a language other than Javascript), or you can fill out the functions in `solution.js`. Running `braille.js` will compare your solution with the solution in `reference.js`, indicating correct mappings in green and incorrect mappings in red.
 
