@@ -61,7 +61,7 @@ Example values translated to Braille characters in Vertical Order:
 
 ## Solution
 
-The output format for each sequence is a 16x16 grid with spaces between each character and between each row.
+The output format for each sequence is a 16x16 grid with spaces between each character and an empty line between each row.
 
 An ideal solution will not need to reference any of the characters, and should leverage a mechanism for translating any value between 0 and 255 into the appropriate codepoints depending on the mode (native, horizontal-first, or vertical-first), then translate the codepoint into a character.
 
