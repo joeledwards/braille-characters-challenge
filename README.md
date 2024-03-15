@@ -78,6 +78,29 @@ The functions are:
 * `verticalMapper()`   | example: `verticalMapper(27)` == `⡋`
 
 
+### Setup
+
+You will need to install dependencies in order to run the validator
+
+```
+npm install
+```
+
+
+### Running the Validator
+
+In order to validate your implementation in solution.js against referenc.js, you should run braille.js
+
+```
+./braille.js
+```
+
+OR
+
+```
+node braille.js
+```
+
 
 ### Reference output
 
