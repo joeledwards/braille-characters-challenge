@@ -28,22 +28,24 @@ function loadMapperSource () {
 const { module: source, label: legacySourceLabel } = loadMapperSource()
 
 function createIntuitiveMapper () {
-  const bitToDot = [
-    0x20, // bit0 -> lower right (dot 6)
-    0x10, // bit1 -> middle right (dot 5)
-    0x08, // bit2 -> upper right (dot 4)
-    0x04, // bit3 -> lower left (dot 3)
-    0x02, // bit4 -> middle left (dot 2)
-    0x01, // bit5 -> upper left (dot 1)
-  ]
+  const bitMap = new Map([
+    [0,   0x00],
+    [1,   0x80], // LSB -> dot 8 (lower right)
+    [2,   0x20], // -> dot 6 (middle right)
+    [4,   0x10], // -> dot 5 (upper right within lower band)
+    [8,   0x40], // -> dot 7 (lower left)
+    [16,  0x04], // -> dot 3 (middle left)
+    [32,  0x02], // MSB -> dot 2 (upper left)
+  ])
 
   return function intuitiveMapper (value) {
     const capped = value & 0x3f
     let offset = 0
 
-    for (let bitIndex = 0; bitIndex < bitToDot.length; bitIndex++) {
-      if (capped & (1 << bitIndex)) {
-        offset |= bitToDot[bitIndex]
+    const sourceBits = [1, 2, 4, 8, 16, 32]
+    for (const bit of sourceBits) {
+      if (capped & bit) {
+        offset |= bitMap.get(bit)
       }
     }
 
