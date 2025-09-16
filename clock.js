@@ -112,7 +112,6 @@ function render () {
     .trimEnd()
 
   process.stdout.write('\u001Bc')
-  process.stdout.write(`Binary Braille ISO Clock [${mode} order via ${sourceLabel}]` + '\n')
   process.stdout.write(primaryLine + '\n')
   process.stdout.write(iso + '\n')
   process.stdout.write('\nPress Ctrl+C to exit.\n')
